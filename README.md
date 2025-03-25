@@ -25,7 +25,8 @@ cd ros2_autonomous_racing/src/turtlesim
 colcon build --packages-select turtlesim  
 
 ## Run the a node of the package (has to be done in a new terminal)
-source /opt/ros/humble/setup.bash  
+source /opt/ros/humble/setup.bash 
+cd ros2_autonomous_racing
 source install/local_setup.bash  
 ros2 run turtlesim turtlesim_node  
 
