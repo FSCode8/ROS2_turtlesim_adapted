@@ -59,7 +59,9 @@ Turtle::Turtle(rclcpp::Node::SharedPtr& nh, const std::string& real_name, const 
 {
   pen_.setWidth(3);
 
-  rclcpp::QoS qos(rclcpp::KeepLast(7));
+  rclcpp::QoS qos(10);
+  qos.reliability(RMW_QOS_POLICY_RELIABILITY_RELIABLE);
+  qos.durability(RMW_QOS_POLICY_DURABILITY_TRANSIENT_LOCAL);
   velocity_sub_ = nh_->create_subscription<geometry_msgs::msg::Twist>(real_name + "/cmd_vel", qos, std::bind(&Turtle::velocityCallback, this, std::placeholders::_1));
   pose_pub_ = nh_->create_publisher<turtlesim::msg::Pose>(real_name + "/pose", qos);
   color_pub_ = nh_->create_publisher<turtlesim::msg::Color>(real_name + "/color_sensor", qos);

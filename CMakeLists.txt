@@ -54,14 +54,14 @@ target_link_libraries(turtlesim_node "${cpp_typesupport_target}")
 add_executable(turtle_teleop_key tutorials/teleop_turtle_key.cpp)
 ament_target_dependencies(turtle_teleop_key ${dependencies})
 target_link_libraries(turtle_teleop_key "${cpp_typesupport_target}")
-add_executable(draw_square tutorials/draw_square.cpp)
-ament_target_dependencies(draw_square ${dependencies})
-target_link_libraries(draw_square "${cpp_typesupport_target}")
+add_executable(draw_rectangle src/draw_rectangle.cpp)
+ament_target_dependencies(draw_rectangle ${dependencies})
+target_link_libraries(draw_rectangle "${cpp_typesupport_target}")
 add_executable(mimic tutorials/mimic.cpp)
 ament_target_dependencies(mimic ${dependencies})
 target_link_libraries(mimic "${cpp_typesupport_target}")
 
-install(TARGETS turtlesim_node turtle_teleop_key draw_square mimic
+install(TARGETS turtlesim_node turtle_teleop_key draw_rectangle mimic
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY images
