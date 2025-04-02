@@ -13,10 +13,7 @@ mkdir src
 cd src  
 mkdir turtlesim  
 cd turtlesim  
-git init  
-git remote add origin git@github.com:FSCode8/ROS2_turtlesim_adapted.git  
-git pull  
-git checkout -b main origin/main  
+git clone origin git@github.com:FSCode8/ROS2_turtlesim_adapted.git .  
 
 ## Build the package 
 cd ~  
@@ -31,6 +28,9 @@ source install/local_setup.bash
 ros2 run turtlesim turtlesim_node  
 
 ## Run the triangle paint function (other terminal with turtlesim_node has to be running)
-
+source /opt/ros/humble/setup.bash  
+cd ros2_autonomous_racing  
+source install/local_setup.bash  
+ros2 run turtlesim draw_rectangle ${some int}  
 
 
